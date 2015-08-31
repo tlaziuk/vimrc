@@ -28,6 +28,7 @@ Plugin 'evidens/vim-twig'
 Plugin 'fatih/vim-go'
 call vundle#end()
 filetype plugin indent on
+let g:airline_theme='molokai'
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline_detect_crypt=1
@@ -56,13 +57,14 @@ let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_auto_jump=0
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+let g:syntastic_php_checkers = ['php']
 let g:easytags_on_cursorhold=1
 let g:easytags_dynamic_files=1
 let g:easytags_async=1
 let g:easytags_autorecurse=0
 set tags+=./tags;
 let notabs=0
+let g:rehash256=1
 set list listchars=eol:¶,nbsp:¶,tab:\|~,trail:·,
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -83,7 +85,6 @@ set smartcase
 set incsearch
 set ruler
 set autoindent smartindent
-set background=dark
 set linebreak
 set selection=inclusive
 set mousehide
@@ -93,7 +94,7 @@ set clipboard=unnamedplus
 set switchbuf=newtab,usetab
 set laststatus=2
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-nnoremap <silent> nt :NERDTreeToggle<CR>
+nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> <F6> :only<CR>
 nnoremap <silent> <F7> :sbprevious<CR>
 nnoremap <silent> <F8> :sbnext<CR>
@@ -113,4 +114,5 @@ inoremap \nn <C-O>o
 inoremap <C-\> <C-O>o
 syntax enable
 syntax on
+colorscheme molokai
 
