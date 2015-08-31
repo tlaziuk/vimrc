@@ -25,7 +25,6 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'tlaziuk/vim-system-copy'
 Plugin 'evidens/vim-twig'
-Plugin 'szw/vim-tags'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
@@ -40,7 +39,7 @@ let g:bufExplorerShowTabBuffer=0
 let g:miniBufExplorerAutoStart=0
 let g:miniBufExplSplitBelow=0
 let g:miniBufExplorerMoreThanOne=0
-let g:ctrlp_working_path_mode='wa'
+let g:ctrlp_working_path_mode=''
 let g:ctrlp_use_caching=1
 let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_show_hidden=1
@@ -48,8 +47,9 @@ let g:ctrlp_open_new_file='r'
 let g:ctrlp_follow_symlinks=1
 let g:ctrlp_cmd='CtrlPMixed'
 let g:ctrlp_open_multiple_files='ij'
-let g:ctrlp_regexp=1
+let g:ctrlp_regexp=0
 let g:ctrlp_max_files=0
+let g:ctrlp_mruf_max=256
 let g:syntastic_always_populate_loc_list=0
 let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=1
@@ -57,8 +57,10 @@ let g:syntastic_check_on_wq=0
 let g:syntastic_auto_jump=0
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 let g:easytags_on_cursorhold=1
-let g:easytags_dynamic_files = 1
-set tags=./tags;
+let g:easytags_dynamic_files=1
+let g:easytags_async=1
+let g:easytags_autorecurse=0
+set tags+=./tags;
 let notabs=0
 set list listchars=eol:¶,nbsp:¶,tab:\|~,trail:·,
 set statusline+=%#warningmsg#
@@ -90,7 +92,7 @@ set clipboard=unnamedplus
 set switchbuf=newtab,usetab
 set laststatus=2
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-" nnoremap <silent> <S-t> :NERDTreeToggle<CR>
+nnoremap <silent> nt :NERDTreeToggle<CR>
 nnoremap <silent> <F6> :only<CR>
 nnoremap <silent> <F7> :sbprevious<CR>
 nnoremap <silent> <F8> :sbnext<CR>
