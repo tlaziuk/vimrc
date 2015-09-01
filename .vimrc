@@ -118,7 +118,9 @@ set ttymouse=xterm
 set clipboard=unnamedplus
 set switchbuf=newtab,usetab
 set laststatus=2
+set formatoptions+=t
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.md set textwidth=80
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> <F6> :only<CR>
 nnoremap <silent> <F7> :sbprevious<CR>
@@ -135,8 +137,9 @@ nnoremap <silent> tf :blast<CR>:only<CR>
 nnoremap <silent> <C-_> :TComment<CR>
 vnoremap <silent> <C-_> :TComment<CR>
 noremap <silent> <F10> :noh<CR>
-inoremap \nn <C-O>o
 inoremap <C-\> <C-O>o
+inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-x><c-i>"))
+inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-x><c-o>"))
 syntax enable
 syntax on
 
