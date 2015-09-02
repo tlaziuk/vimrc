@@ -119,6 +119,7 @@ set clipboard=unnamedplus
 set switchbuf=newtab,usetab
 set laststatus=2
 set formatoptions+=t
+set cursorline
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.md set textwidth=80
 nnoremap <silent> tn :NERDTreeToggle<CR>
