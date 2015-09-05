@@ -123,8 +123,10 @@ set switchbuf=newtab,usetab
 set laststatus=2
 set formatoptions+=t
 set cursorline
+set nospell
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd BufNewFile,BufReadPost *.md set textwidth=80
+autocmd FileType markdown,text set spell spelllang=en
+autocmd FileType markdown,text set textwidth=80
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> <F6> :only<CR>
 nnoremap <silent> <F7> :sbprevious<CR>
