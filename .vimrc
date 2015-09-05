@@ -90,7 +90,7 @@ let g:easytags_autorecurse=0
 set tags+=./tags;
 let g:gitgutter_highlight_lines=0
 let g:gitgutter_max_signs=4096
-let g:gitgutter_realtime=0
+let g:gitgutter_realtime=1
 let notabs=0
 let g:rehash256=1
 set list listchars=eol:¶,nbsp:¶,tab:\|~,trail:·,
@@ -127,6 +127,9 @@ set nospell
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType markdown,text set spell spelllang=en
 autocmd FileType markdown,text set textwidth=80
+autocmd FileType php set tabstop=4
+autocmd FileType php set shiftwidth=4
+autocmd FileType php set noexpandtab
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> <F6> :only<CR>
 nnoremap <silent> <F7> :sbprevious<CR>
