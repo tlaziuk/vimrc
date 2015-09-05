@@ -125,7 +125,7 @@ set formatoptions+=t
 set cursorline
 set nospell
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd FileType markdown,text set spell spelllang=en
+autocmd FileType markdown,text,gitcommit set spell spelllang=en
 autocmd FileType markdown,text set textwidth=80
 autocmd FileType php set tabstop=4
 autocmd FileType php set shiftwidth=4
