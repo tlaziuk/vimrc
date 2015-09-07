@@ -26,6 +26,7 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'tlaziuk/vim-system-copy'
 Plugin 'evidens/vim-twig'
 Plugin 'fatih/vim-go'
+Plugin 'xwsoul/vim-zephir'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
@@ -124,11 +125,13 @@ set switchbuf=newtab,usetab
 set laststatus=2
 set formatoptions+=t
 set cursorline
+set nospell
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd BufNewFile,BufReadPost *.md set textwidth=80
-autocmd FileType php set tabstop=4
-autocmd FileType php set shiftwidth=4
-autocmd FileType php set noexpandtab
+autocmd FileType markdown,text,gitcommit set spell spelllang=en
+autocmd FileType markdown,text set textwidth=80
+autocmd FileType php,zephir set tabstop=4
+autocmd FileType php,zephir set shiftwidth=4
+autocmd FileType php,zephir set noexpandtab
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> :rm :call delete(expand('%'))<CR>:bdelete!<CR>
 nnoremap <silent> <F6> :only<CR>
