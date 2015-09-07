@@ -79,6 +79,7 @@ let g:ctrlp_open_multiple_files='ij'
 let g:ctrlp_regexp=0
 let g:ctrlp_max_files=0
 let g:ctrlp_mruf_max=256
+let g:ctrlp_match_window='bottom,order:btt,min:1,max:8,results:64'
 let g:syntastic_always_populate_loc_list=0
 let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=1
@@ -94,6 +95,9 @@ let g:gitgutter_highlight_lines=0
 let g:gitgutter_max_signs=4096
 let g:gitgutter_realtime=1
 let notabs=0
+set t_vb=
+set visualbell
+set errorbells
 let g:rehash256=1
 set list listchars=eol:¶,nbsp:¶,tab:\|~,trail:·,
 set statusline+=%#warningmsg#
@@ -133,6 +137,7 @@ autocmd FileType php,zephir set tabstop=4
 autocmd FileType php,zephir set shiftwidth=4
 autocmd FileType php,zephir set noexpandtab
 nnoremap <silent> tn :NERDTreeToggle<CR>
+nnoremap <silent> :rm :call delete(expand('%'))<CR>:bdelete!<CR>
 nnoremap <silent> <F6> :only<CR>
 nnoremap <silent> <F7> :sbprevious<CR>
 nnoremap <silent> <F8> :sbnext<CR>
