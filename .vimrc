@@ -27,6 +27,7 @@ Plugin 'tlaziuk/vim-system-copy'
 Plugin 'evidens/vim-twig'
 Plugin 'fatih/vim-go'
 Plugin 'xwsoul/vim-zephir'
+Plugin 'groenewege/vim-less'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
