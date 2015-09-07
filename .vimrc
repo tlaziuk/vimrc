@@ -94,6 +94,9 @@ let g:gitgutter_highlight_lines=0
 let g:gitgutter_max_signs=4096
 let g:gitgutter_realtime=1
 let notabs=0
+set t_vb=
+set visualbell
+set errorbells
 let g:rehash256=1
 set list listchars=eol:¶,nbsp:¶,tab:\|~,trail:·,
 set statusline+=%#warningmsg#
