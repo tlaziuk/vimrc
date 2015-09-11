@@ -134,6 +134,7 @@ set nospell
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType markdown,text,gitcommit set spell spelllang=en
 autocmd FileType markdown,text set textwidth=80
+autocmd FileType markdown,text set formatoptions+=t
 autocmd FileType php,zephir set tabstop=4
 autocmd FileType php,zephir set shiftwidth=4
 autocmd FileType php,zephir set noexpandtab
