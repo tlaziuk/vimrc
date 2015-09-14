@@ -131,6 +131,7 @@ set laststatus=2
 set formatoptions+=t
 set cursorline
 set nospell
+set iskeyword-={,},(,),\<,\>,\,,.
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType markdown,text,gitcommit set spell spelllang=en
 autocmd FileType markdown,text set textwidth=80
