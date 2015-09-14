@@ -138,6 +138,10 @@ autocmd FileType markdown,text set formatoptions+=t
 autocmd FileType php,zephir set tabstop=4
 autocmd FileType php,zephir set shiftwidth=4
 autocmd FileType php,zephir set noexpandtab
+autocmd BufNewFile,BufReadPost *.dom set filetype=apache
+autocmd FileType apache set tabstop=4
+autocmd FileType apache set shiftwidth=4
+autocmd FileType apache set expandtab
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> :rm :call delete(expand('%'))<CR>:bdelete!<CR>
 nnoremap <silent> <F6> :only<CR>
