@@ -125,7 +125,7 @@ set selection=inclusive
 set mousehide
 set mouse=a
 set ttymouse=xterm
-set clipboard=unnamedplus
+set clipboard=autoselectplus
 set switchbuf=newtab,usetab
 set laststatus=2
 set formatoptions+=t
