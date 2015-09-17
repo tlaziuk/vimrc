@@ -29,6 +29,7 @@ Plugin 'fatih/vim-go'
 Plugin 'xwsoul/vim-zephir'
 Plugin 'groenewege/vim-less'
 Plugin 'tomasr/molokai'
+Plugin 'heavenshell/vim-jsdoc'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
@@ -92,6 +93,12 @@ let g:easytags_dynamic_files=1
 let g:easytags_async=1
 let g:easytags_autorecurse=0
 set tags+=./tags;
+let g:jsdoc_allow_input_prompt=1
+let g:jsdoc_underscore_private=1
+let g:jsdoc_enable_es6=1
+let g:jsdoc_additional_descriptions=1
+let g:jsdoc_return=1
+let g:jsdoc_access_descriptions=1
 let g:gitgutter_highlight_lines=0
 let g:gitgutter_max_signs=4096
 let g:gitgutter_realtime=1
