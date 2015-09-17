@@ -29,6 +29,8 @@ Plugin 'fatih/vim-go'
 Plugin 'xwsoul/vim-zephir'
 Plugin 'groenewege/vim-less'
 Plugin 'tomasr/molokai'
+Plugin 'heavenshell/vim-jsdoc'
+Plugin '907th/vim-auto-save'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
@@ -92,9 +94,18 @@ let g:easytags_dynamic_files=1
 let g:easytags_async=1
 let g:easytags_autorecurse=0
 set tags+=./tags;
+let g:jsdoc_allow_input_prompt=1
+let g:jsdoc_underscore_private=1
+let g:jsdoc_enable_es6=1
+let g:jsdoc_additional_descriptions=1
+let g:jsdoc_return=1
+let g:jsdoc_access_descriptions=1
 let g:gitgutter_highlight_lines=0
 let g:gitgutter_max_signs=4096
 let g:gitgutter_realtime=1
+let g:auto_save=1
+let g:auto_save_no_updatetime=1
+let g:auto_save_in_insert_mode=1
 let notabs=0
 set t_vb=
 set visualbell
@@ -139,6 +150,10 @@ autocmd FileType markdown,text set formatoptions+=t
 autocmd FileType php,zephir set tabstop=4
 autocmd FileType php,zephir set shiftwidth=4
 autocmd FileType php,zephir set noexpandtab
+autocmd BufNewFile,BufReadPost *.dom set filetype=apache
+autocmd FileType apache set tabstop=4
+autocmd FileType apache set shiftwidth=4
+autocmd FileType apache set expandtab
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> :rm :call delete(expand('%'))<CR>:bdelete!<CR>
 nnoremap <silent> <F6> :only<CR>
