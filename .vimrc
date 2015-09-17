@@ -30,6 +30,7 @@ Plugin 'xwsoul/vim-zephir'
 Plugin 'groenewege/vim-less'
 Plugin 'tomasr/molokai'
 Plugin 'heavenshell/vim-jsdoc'
+Plugin '907th/vim-auto-save'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
@@ -102,6 +103,9 @@ let g:jsdoc_access_descriptions=1
 let g:gitgutter_highlight_lines=0
 let g:gitgutter_max_signs=4096
 let g:gitgutter_realtime=1
+let g:auto_save=1
+let g:auto_save_no_updatetime=1
+let g:auto_save_in_insert_mode=1
 let notabs=0
 set t_vb=
 set visualbell
