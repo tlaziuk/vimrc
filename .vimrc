@@ -103,7 +103,7 @@ let g:jsdoc_access_descriptions=1
 let g:gitgutter_highlight_lines=0
 let g:gitgutter_max_signs=4096
 let g:gitgutter_realtime=1
-let g:auto_save=1
+let g:auto_save=0
 let g:auto_save_no_updatetime=1
 let g:auto_save_in_insert_mode=0
 let notabs=0
@@ -155,6 +155,7 @@ autocmd FileType apache set tabstop=4
 autocmd FileType apache set shiftwidth=4
 autocmd FileType apache set expandtab
 nnoremap <silent> tn :NERDTreeToggle<CR>
+nnoremap <silent> ts :AutoSaveToggle<CR>
 nnoremap <silent> :rm :call delete(expand('%'))<CR>:bdelete!<CR>
 nnoremap <silent> <F6> :only<CR>
 nnoremap <silent> <F7> :sbprevious<CR>
