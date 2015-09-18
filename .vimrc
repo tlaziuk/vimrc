@@ -105,7 +105,7 @@ let g:gitgutter_max_signs=4096
 let g:gitgutter_realtime=1
 let g:auto_save=1
 let g:auto_save_no_updatetime=1
-let g:auto_save_in_insert_mode=1
+let g:auto_save_in_insert_mode=0
 let notabs=0
 set t_vb=
 set visualbell
