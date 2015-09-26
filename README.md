@@ -14,13 +14,13 @@ Installation
   cd ~
   ln -s .vimrc.git/.vimrc
   ```
-- Install [Vundle.vim](https://github.com/VundleVim/Vundle.vim) (package manager):
+- Install [Vundle.vim](https://github.com/VundleVim/Vundle.vim) - a package manager:
   ``` bash
   mkdir -p ~/.vim/bundle
   cd ~/.vim/bundle
   git clone https://github.com/VundleVim/Vundle.vim
   ```
-- Run Vim and update plugins:
+- Run Vim and with update plugins command:
   ``` bash
   vim -c "PluginUpdate"
   ```

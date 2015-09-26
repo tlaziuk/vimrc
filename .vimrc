@@ -15,7 +15,6 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
-Plugin 'xolox/vim-easytags'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'chrisbra/csv.vim'
@@ -31,6 +30,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'tomasr/molokai'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin '907th/vim-auto-save'
+Plugin 'szw/vim-tags'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
@@ -89,11 +89,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_auto_jump=0
 let g:syntastic_php_checkers = ['php']
-let g:easytags_on_cursorhold=1
-let g:easytags_dynamic_files=1
-let g:easytags_async=1
-let g:easytags_autorecurse=0
-set tags+=./tags;
+set tags+=tags;
 let g:jsdoc_allow_input_prompt=1
 let g:jsdoc_underscore_private=1
 let g:jsdoc_enable_es6=1
