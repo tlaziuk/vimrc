@@ -31,6 +31,7 @@ Plugin 'tomasr/molokai'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin '907th/vim-auto-save'
 Plugin 'szw/vim-tags'
+Plugin 'y-ishida/vim-vala'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
@@ -150,6 +151,8 @@ autocmd BufNewFile,BufReadPost *.dom set filetype=apache
 autocmd FileType apache set tabstop=4
 autocmd FileType apache set shiftwidth=4
 autocmd FileType apache set expandtab
+autocmd BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+au BufRead,BufNewFile *.vala,*.vapi setfiletype vala
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> ts :AutoSaveToggle<CR>
 nnoremap <silent> :rm :call delete(expand('%'))<CR>:bdelete!<CR>
