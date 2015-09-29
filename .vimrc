@@ -172,6 +172,7 @@ nnoremap <silent> <C-_> :TComment<CR>
 vnoremap <silent> <C-_> :TComment<CR>
 noremap <silent> <F10> :noh<CR>
 inoremap <C-\> <C-O>o
+nnoremap <C-\> o
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-x><c-i>"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-x><c-o>"))
 syntax enable
