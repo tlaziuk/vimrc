@@ -4,7 +4,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'xolox/vim-misc'
-Plugin 'wting/rust.vim'
+Plugin 'rust-lang/rust.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
@@ -87,11 +87,10 @@ let g:ctrlp_max_files=0
 let g:ctrlp_mruf_max=4
 let g:ctrlp_match_window='bottom,order:btt,min:1,max:8,results:64'
 let g:syntastic_always_populate_loc_list=0
-let g:syntastic_auto_loc_list=0
+let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_auto_jump=0
-let g:syntastic_php_checkers = ['php']
 set tags+=tags;
 let g:jsdoc_allow_input_prompt=1
 let g:jsdoc_underscore_private=1
@@ -125,6 +124,7 @@ set expandtab
 set formatoptions=c,q,r,t
 set smarttab
 set number
+set relativenumber
 set showmatch
 set smartcase
 set incsearch
@@ -154,7 +154,9 @@ autocmd FileType apache set tabstop=4
 autocmd FileType apache set shiftwidth=4
 autocmd FileType apache set expandtab
 autocmd BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-au BufRead,BufNewFile *.vala,*.vapi setfiletype vala
+autocmd BufRead,BufNewFile *.vala,*.vapi setfiletype vala
+autocmd InsertEnter * set norelativenumber
+autocmd InsertLeave * set relativenumber
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> ts :AutoSaveToggle<CR>
 nnoremap <silent> :rm :call delete(expand('%'))<CR>:bdelete!<CR>
