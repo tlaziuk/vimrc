@@ -89,8 +89,8 @@ let g:ctrlp_regexp=0
 let g:ctrlp_max_files=0
 let g:ctrlp_mruf_max=4
 let g:ctrlp_match_window='bottom,order:btt,min:1,max:8,results:64'
-let g:syntastic_always_populate_loc_list=0
-let g:syntastic_auto_loc_list=1
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_auto_jump=0
@@ -127,7 +127,6 @@ set expandtab
 set formatoptions=c,q,r,t
 set smarttab
 set number
-set relativenumber
 set showmatch
 set smartcase
 set incsearch
@@ -145,21 +144,21 @@ set formatoptions+=t
 set cursorline
 set nospell
 set iskeyword-={,},(,),\<,\>,\,,.
+set colorcolumn=80
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd FileType markdown,text,gitcommit set spell spelllang=en
 autocmd FileType markdown,text set textwidth=80
 autocmd FileType markdown,text set formatoptions+=t
 autocmd FileType php,zephir set tabstop=4
 autocmd FileType php,zephir set shiftwidth=4
-autocmd FileType php,zephir set noexpandtab
+autocmd FileType php,zephir set expandtab
+autocmd FileType php,zephir set colorcolumn=85
 autocmd BufNewFile,BufReadPost *.dom set filetype=apache
 autocmd FileType apache set tabstop=4
 autocmd FileType apache set shiftwidth=4
 autocmd FileType apache set expandtab
 autocmd BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd BufRead,BufNewFile *.vala,*.vapi setfiletype vala
-autocmd InsertEnter * set norelativenumber
-autocmd InsertLeave * set relativenumber
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> ts :AutoSaveToggle<CR>
 nnoremap <silent> :rm :call delete(expand('%'))<CR>:bdelete!<CR>
