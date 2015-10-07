@@ -37,6 +37,7 @@ Plugin 'szw/vim-tags'
 Plugin 'y-ishida/vim-vala'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'powerman/vim-plugin-autosess'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
