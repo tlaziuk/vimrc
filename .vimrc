@@ -1,8 +1,11 @@
+scriptencoding utf-8
+set encoding=utf-8
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tobyS/vmustache'
 Plugin 'xolox/vim-misc'
 Plugin 'rust-lang/rust.vim'
 Plugin 'kballard/vim-swift'
@@ -15,9 +18,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neosnippet.vim'
+Plugin 'Shougo/vimshell.vim'
+Plugin 'Shougo/neosnippet-snippets'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'chrisbra/csv.vim'
@@ -33,7 +37,7 @@ Plugin 'groenewege/vim-less'
 Plugin 'tomasr/molokai'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin '907th/vim-auto-save'
-Plugin 'szw/vim-tags'
+Plugin 'xolox/vim-easytags'
 Plugin 'y-ishida/vim-vala'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'easymotion/vim-easymotion'
@@ -90,12 +94,15 @@ let g:ctrlp_regexp=0
 let g:ctrlp_max_files=0
 let g:ctrlp_mruf_max=4
 let g:ctrlp_match_window='bottom,order:btt,min:1,max:8,results:64'
-let g:syntastic_always_populate_loc_list=1
+let g:syntastic_always_populate_loc_list=0
 let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_auto_jump=0
 set tags+=tags;
+set cpoptions+=d
+let g:easytags_dynamic_files=2
+let g:easytags_suppress_ctags_warning = 1
 let g:jsdoc_allow_input_prompt=1
 let g:jsdoc_underscore_private=1
 let g:jsdoc_enable_es6=1
@@ -109,11 +116,18 @@ let g:auto_save=0
 let g:auto_save_no_updatetime=1
 let g:auto_save_in_insert_mode=0
 let notabs=0
+let g:neocomplete#enable_at_startup=1
+let g:neocomplete#enable_smart_case=1
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 set t_vb=
 set visualbell
 set errorbells
 let g:rehash256=1
-set list listchars=eol:¶,nbsp:¶,tab:\|~,trail:·,
+set list listchars=eol:¬,nbsp:¶,tab:»»,trail:·,
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -146,20 +160,20 @@ set cursorline
 set nospell
 set iskeyword-={,},(,),\<,\>,\,,.
 set colorcolumn=80
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-autocmd FileType markdown,text,gitcommit set spell spelllang=en
-autocmd FileType markdown,text set textwidth=80
-autocmd FileType markdown,text set formatoptions+=t
-autocmd FileType php,zephir set tabstop=4
-autocmd FileType php,zephir set shiftwidth=4
-autocmd FileType php,zephir set expandtab
-autocmd FileType php,zephir set colorcolumn=85
-autocmd BufNewFile,BufReadPost *.dom set filetype=apache
-autocmd FileType apache set tabstop=4
-autocmd FileType apache set shiftwidth=4
-autocmd FileType apache set expandtab
-autocmd BufRead *.vala,*.vapi set efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
-autocmd BufRead,BufNewFile *.vala,*.vapi setfiletype vala
+autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
+autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
+autocmd FileType markdown,text setlocal textwidth=80
+autocmd FileType markdown,text setlocal formatoptions+=t
+autocmd FileType php,zephir setlocal tabstop=4
+autocmd FileType php,zephir setlocal shiftwidth=4
+autocmd FileType php,zephir setlocal expandtab
+autocmd FileType php,zephir setlocal colorcolumn=85
+autocmd BufNewFile,BufReadPost *.dom setlocal filetype=apache
+autocmd FileType apache setlocal tabstop=4
+autocmd FileType apache setlocal shiftwidth=4
+autocmd FileType apache setlocal expandtab
+autocmd BufRead *.vala,*.vapi setlocal efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+autocmd BufRead,BufNewFile *.vala,*.vapi setlocal filetype vala
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> ts :AutoSaveToggle<CR>
 nnoremap <silent> :rm :call delete(expand('%'))<CR>:bdelete!<CR>
