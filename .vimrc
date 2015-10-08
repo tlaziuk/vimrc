@@ -41,7 +41,7 @@ Plugin 'xolox/vim-easytags'
 Plugin 'y-ishida/vim-vala'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'powerman/vim-plugin-autosess'
+Plugin 'xolox/vim-session'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
@@ -92,8 +92,14 @@ let g:ctrlp_cmd='CtrlPMixed'
 let g:ctrlp_open_multiple_files='ij'
 let g:ctrlp_regexp=0
 let g:ctrlp_max_files=0
-let g:ctrlp_mruf_max=4
+let g:ctrlp_mruf_max=32
 let g:ctrlp_match_window='bottom,order:btt,min:1,max:8,results:64'
+set wildignore+=node_modules/*,*/node_modules/*,node_modules
+let g:session_autosave='yes'
+let g:session_autoload='yes'
+let g:session_directory='.'
+let g:session_default_name='Session'
+let g:session_default_extension='.vim'
 let g:syntastic_always_populate_loc_list=0
 let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=1
@@ -123,6 +129,8 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 set t_vb=
 set visualbell
 set errorbells
