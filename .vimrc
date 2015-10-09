@@ -168,6 +168,7 @@ set cursorline
 set nospell
 set iskeyword-={,},(,),\<,\>,\,,.
 set colorcolumn=80
+set scrolloff=5
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
 autocmd FileType markdown,text setlocal textwidth=80
@@ -206,4 +207,3 @@ inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-x><c-i>"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-x><c-o>"))
 syntax enable
 syntax on
-
