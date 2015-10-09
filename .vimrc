@@ -42,6 +42,7 @@ Plugin 'y-ishida/vim-vala'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'xolox/vim-session'
+Plugin 'jiangmiao/auto-pairs'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
@@ -130,12 +131,11 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 set t_vb=
 set visualbell
 set errorbells
 let g:rehash256=1
-set list listchars=eol:¬,nbsp:¶,tab:»»,trail:·,
+set list listchars=eol:¬,nbsp:¶,tab:»·,trail:·,
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
