@@ -125,6 +125,14 @@ let g:auto_save_in_insert_mode=0
 let notabs=0
 let g:neocomplete#enable_at_startup=1
 let g:neocomplete#enable_smart_case=1
+function! Multiple_cursors_before()
+  exe 'NeoCompleteLock'
+  echo 'Disabled autocomplete'
+endfunction
+function! Multiple_cursors_after()
+  exe 'NeoCompleteUnlock'
+  echo 'Enabled autocomplete'
+endfunction
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
