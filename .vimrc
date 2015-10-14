@@ -143,7 +143,7 @@ set t_vb=
 set visualbell
 set errorbells
 let g:rehash256=1
-set list listchars=eol:¬,nbsp:¶,tab:»·,trail:·,
+set list listchars=eol:¬,nbsp:¶,tab:\|·,trail:·,
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
