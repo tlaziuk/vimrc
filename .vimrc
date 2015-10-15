@@ -8,7 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tobyS/vmustache'
 Plugin 'xolox/vim-misc'
 Plugin 'rust-lang/rust.vim'
-Plugin 'kballard/vim-swift'
+Plugin 'keith/vim-swift'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
@@ -151,7 +151,7 @@ set t_vb=
 set visualbell
 set errorbells
 let g:rehash256=1
-set list listchars=eol:¬,nbsp:¶,tab:»·,trail:·,
+set list listchars=eol:¬,nbsp:¶,tab:\|·,trail:·,
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
