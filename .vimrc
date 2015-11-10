@@ -40,7 +40,6 @@ Plugin 'xolox/vim-easytags'
 Plugin 'y-ishida/vim-vala'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'xolox/vim-session'
 Plugin 'jiangmiao/auto-pairs'
 call vundle#end()
 filetype plugin indent on
@@ -95,11 +94,6 @@ let g:ctrlp_max_files=0
 let g:ctrlp_mruf_max=32
 let g:ctrlp_match_window='bottom,order:btt,min:1,max:8,results:64'
 set wildignore+=node_modules/*,*/node_modules/*,node_modules
-let g:session_autosave='yes'
-let g:session_autoload='yes'
-let g:session_directory='.'
-let g:session_default_name='.Session'
-let g:session_default_extension='.vim'
 let g:syntastic_always_populate_loc_list=0
 let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=1
