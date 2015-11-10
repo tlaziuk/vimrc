@@ -47,6 +47,8 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'burnettk/vim-angular'
+" debug
+Plugin 'joonty/vdebug'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
@@ -210,17 +212,13 @@ autocmd BufRead,BufNewFile *.vala,*.vapi setlocal filetype vala
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> ts :AutoSaveToggle<CR>
 nnoremap <silent> :rm :call delete(expand('%'))<CR>:bdelete!<CR>
-nnoremap <silent> <F6> :only<CR>
-nnoremap <silent> <F7> :sbprevious<CR>
-nnoremap <silent> <F8> :sbnext<CR>
-nnoremap <silent> <F9> :TagbarToggle<CR>
 nnoremap <silent> <A-,> :sbprevious<CR>:only<CR>
 nnoremap <silent> <A-.> :sbnext<CR>:only<CR>
 nnoremap <silent> <C-,> :sbprevious<CR>:only<CR>
 nnoremap <silent> <C-.> :sbnext<CR>:only<CR>
 nnoremap <silent> tp :sbprevious<CR>:only<CR>
 nnoremap <silent> tn :sbnext<CR>:only<CR>
-nnoremap <silent> tl :bprevious<CR>:only<CR>
+nnoremap <silent> tl :bfirst<CR>:only<CR>
 nnoremap <silent> tf :blast<CR>:only<CR>
 nnoremap <silent> <C-_> :TComment<CR>
 vnoremap <silent> <C-_> :TComment<CR>
