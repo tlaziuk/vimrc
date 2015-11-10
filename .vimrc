@@ -38,9 +38,10 @@ Plugin 'heavenshell/vim-jsdoc'
 Plugin '907th/vim-auto-save'
 Plugin 'xolox/vim-easytags'
 Plugin 'y-ishida/vim-vala'
-Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'jiangmiao/auto-pairs'
+" php
+Plugin 'shawncplus/phpcomplete.vim'
 " javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
@@ -149,6 +150,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType python setlocal omnifunc=jedi#completions
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
