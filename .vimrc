@@ -7,7 +7,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tobyS/vmustache'
 Plugin 'xolox/vim-misc'
-Plugin 'rust-lang/rust.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
@@ -16,38 +15,54 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neosnippet.vim'
 Plugin 'Shougo/vimshell.vim'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
-Plugin 'chrisbra/csv.vim'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'suan/vim-instant-markdown'
 Plugin 'tlaziuk/vim-system-copy'
-Plugin 'evidens/vim-twig'
-Plugin 'fatih/vim-go'
-Plugin 'xwsoul/vim-zephir'
-Plugin 'groenewege/vim-less'
 Plugin 'tomasr/molokai'
-Plugin 'heavenshell/vim-jsdoc'
 Plugin '907th/vim-auto-save'
 Plugin 'xolox/vim-easytags'
-Plugin 'y-ishida/vim-vala'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'jiangmiao/auto-pairs'
-" php
+" Vala
+Plugin 'y-ishida/vim-vala'
+" Python
+Plugin 'davidhalter/jedi-vim'
+" Twig
+Plugin 'evidens/vim-twig'
+" Go
+Plugin 'fatih/vim-go'
+" Less
+Plugin 'groenewege/vim-less'
+" Zaphir
+Plugin 'xwsoul/vim-zephir'
+" markdown
+Plugin 'plasticboy/vim-markdown'
+Plugin 'suan/vim-instant-markdown'
+" Rust
+Plugin 'rust-lang/rust.vim'
+" CSV
+Plugin 'chrisbra/csv.vim'
+" PHP 
 Plugin 'shawncplus/phpcomplete.vim'
-" javascript
+" JavaScript
+Plugin 'heavenshell/vim-jsdoc'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'matthewsimo/angular-vim-snippets'
 Plugin 'burnettk/vim-angular'
-" debug
+Plugin 'posva/vim-vue'
+" CoffeeScript
+Plugin 'kchmck/vim-coffee-script'
+" TypeScript
+Plugin 'leafgarland/typescript-vim'
+" Dart
+Plugin 'dart-lang/dart-vim-plugin'
+" GDB
 Plugin 'joonty/vdebug'
 call vundle#end()
 filetype plugin indent on
@@ -129,6 +144,9 @@ let g:neocomplete#enable_smart_case=1
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
 function! Multiple_cursors_before()
   exe 'NeoCompleteLock'
   echo 'Disabled autocomplete'
@@ -137,6 +155,7 @@ function! Multiple_cursors_after()
   exe 'NeoCompleteUnlock'
   echo 'Enabled autocomplete'
 endfunction
+inoremap <expr><C-Space> neocomplete#start_manual_complete('omni')
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-x><c-i>"))
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-x><c-o>"))
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -153,6 +172,7 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+let g:neocomplete#sources#omni#input_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
@@ -194,7 +214,7 @@ set cursorline
 set nospell
 set iskeyword-={,},(,),\<,\>,\,,.
 set colorcolumn=80
-set scrolloff=10
+set scrolloff=5
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
 autocmd FileType markdown,text setlocal textwidth=80
