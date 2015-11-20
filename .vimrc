@@ -64,6 +64,8 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'dart-lang/dart-vim-plugin'
 " GDB
 Plugin 'joonty/vdebug'
+" Volt
+Plugin 'etaoins/vim-volt-syntax'
 call vundle#end()
 filetype plugin indent on
 let g:airline_detect_modified=1
@@ -172,7 +174,7 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-let g:neocomplete#sources#omni#input_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
