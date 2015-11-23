@@ -40,8 +40,6 @@ NeoBundle 'xolox/vim-misc'
 NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'tomtom/tcomment_vim'
@@ -55,6 +53,9 @@ NeoBundle '907th/vim-auto-save'
 NeoBundle 'xolox/vim-easytags'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'jiangmiao/auto-pairs'
+" git
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'tpope/vim-fugitive'
 " Vala
 NeoBundle 'y-ishida/vim-vala'
 " Python
@@ -96,6 +97,9 @@ NeoBundle 'etaoins/vim-volt-syntax'
 
 call neobundle#end()
 filetype plugin indent on
+let g:neobundle#install_process_timeout=1500
+let g:neobundle#types#git#enable_submodule=1
+let g:neobundle#types#git#clone_depth=128
 NeoBundleCheck
 
 let g:airline_detect_modified=1
