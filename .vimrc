@@ -2,72 +2,102 @@ scriptencoding utf-8
 set encoding=utf-8
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tobyS/vmustache'
-Plugin 'xolox/vim-misc'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet.vim'
-Plugin 'Shougo/vimshell.vim'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'scrooloose/syntastic'
-Plugin 'majutsushi/tagbar'
-Plugin 'godlygeek/tabular'
-Plugin 'tlaziuk/vim-system-copy'
-Plugin 'tomasr/molokai'
-Plugin '907th/vim-auto-save'
-Plugin 'xolox/vim-easytags'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'jiangmiao/auto-pairs'
+
+if has('vim_starting')
+  if &compatible
+    set nocompatible
+  endif
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+endif
+
+call neobundle#begin(expand('/home/tlaziuk/.vim/bundle'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
+
+NeoBundle 'Valloric/YouCompleteMe', {
+\ 'build' : {
+\     'mac' : './install.py',
+\     'unix' : './install.py',
+\     'windows' : 'install.py',
+\     'cygwin' : './install.py'
+\    }
+\ }
+
+NeoBundle 'sirver/ultisnips'
+
+NeoBundle 'tobyS/vmustache'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'tlaziuk/vim-system-copy'
+NeoBundle 'tomasr/molokai'
+NeoBundle '907th/vim-auto-save'
+NeoBundle 'xolox/vim-easytags'
+NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'jiangmiao/auto-pairs'
 " Vala
-Plugin 'y-ishida/vim-vala'
+NeoBundle 'y-ishida/vim-vala'
 " Python
-Plugin 'davidhalter/jedi-vim'
+NeoBundle 'davidhalter/jedi-vim'
 " Twig
-Plugin 'evidens/vim-twig'
+NeoBundle 'evidens/vim-twig'
 " Go
-Plugin 'fatih/vim-go'
+NeoBundle 'fatih/vim-go'
 " Less
-Plugin 'groenewege/vim-less'
+NeoBundle 'groenewege/vim-less'
 " Zaphir
-Plugin 'xwsoul/vim-zephir'
+NeoBundle 'xwsoul/vim-zephir'
 " markdown
-Plugin 'plasticboy/vim-markdown'
-Plugin 'suan/vim-instant-markdown'
+NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'suan/vim-instant-markdown'
 " Rust
-Plugin 'rust-lang/rust.vim'
+NeoBundle 'rust-lang/rust.vim'
 " CSV
-Plugin 'chrisbra/csv.vim'
+NeoBundle 'chrisbra/csv.vim'
 " PHP 
-Plugin 'shawncplus/phpcomplete.vim'
+NeoBundle 'shawncplus/phpcomplete.vim'
 " JavaScript
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'matthewsimo/angular-vim-snippets'
-Plugin 'burnettk/vim-angular'
-Plugin 'posva/vim-vue'
+NeoBundle 'heavenshell/vim-jsdoc'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+NeoBundle 'matthewsimo/angular-vim-snippets'
+NeoBundle 'burnettk/vim-angular'
+NeoBundle 'posva/vim-vue'
 " CoffeeScript
-Plugin 'kchmck/vim-coffee-script'
+NeoBundle 'kchmck/vim-coffee-script'
 " TypeScript
-Plugin 'leafgarland/typescript-vim'
+NeoBundle 'leafgarland/typescript-vim'
 " Dart
-Plugin 'dart-lang/dart-vim-plugin'
+NeoBundle 'dart-lang/dart-vim-plugin'
 " GDB
-Plugin 'joonty/vdebug'
+NeoBundle 'joonty/vdebug'
 " Volt
-Plugin 'etaoins/vim-volt-syntax'
-call vundle#end()
+NeoBundle 'etaoins/vim-volt-syntax'
+
+call neobundle#end()
 filetype plugin indent on
+NeoBundleCheck
+
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 let g:airline_detect_crypt=1
@@ -142,44 +172,23 @@ let g:gitgutter_realtime=1
 let g:auto_save=0
 let g:auto_save_no_updatetime=1
 let g:auto_save_in_insert_mode=0
+let g:ycm_min_num_of_chars_for_completion=1
+let g:ycm_collect_identifiers_from_tags_files=1
+let g:ycm_seed_identifiers_with_syntax=1
 let notabs=0
-let g:neocomplete#enable_at_startup=1
-let g:neocomplete#enable_smart_case=1
-if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
-endif
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-function! Multiple_cursors_before()
-  exe 'NeoCompleteLock'
-  echo 'Disabled autocomplete'
-endfunction
-function! Multiple_cursors_after()
-  exe 'NeoCompleteUnlock'
-  echo 'Enabled autocomplete'
-endfunction
-inoremap <expr><C-Space> neocomplete#start_manual_complete('omni')
-inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-x><c-i>"))
-inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-x><c-o>"))
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+set omnifunc=syntaxcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-x><c-i>"))
+" inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-x><c-o>"))
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 set t_vb=
 set visualbell
 set errorbells
@@ -190,7 +199,6 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set noshowmode
 set shortmess=a
-set omnifunc=syntaxcomplete#Complete
 set hlsearch
 set tabstop=2
 set shiftwidth=2

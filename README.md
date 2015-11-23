@@ -5,7 +5,9 @@ This repository contains `.vimrc` file which is the configuration file for Vim.
 Requirements
 ---
 - `git`
-- `ctags`
+- `exuberant-ctags`
+- `python`
+- `cmake`
 
 Installation
 ---
@@ -14,14 +16,8 @@ Installation
   cd ~
   ln -s .vimrc.git/.vimrc
   ```
-- Install [Vundle.vim](https://github.com/VundleVim/Vundle.vim) - a package manager:
+- Install [neobundle.vim](https://github.com/Shougo/neobundle.vim) - a package manager:
   ``` bash
-  mkdir -p ~/.vim/bundle
-  cd ~/.vim/bundle
-  git clone https://github.com/VundleVim/Vundle.vim
+  sh < (curl -s https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh)
   ```
-- Run Vim and with update plugins command:
-  ``` bash
-  vim -c "PluginUpdate"
-  ```
-  Perform above action as often as you want to update your plugins.
+- After first run of `vim` you will be asked to upgrade your plugins.
