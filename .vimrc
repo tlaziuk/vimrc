@@ -26,10 +26,10 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 NeoBundle 'Valloric/YouCompleteMe', {
 \ 'build' : {
-\     'mac' : './install.py',
-\     'unix' : './install.py',
+\     'mac' : 'python2 install.py',
+\     'unix' : 'python2 install.py',
 \     'windows' : 'install.py',
-\     'cygwin' : './install.py'
+\     'cygwin' : 'python2 install.py'
 \    }
 \ }
 
@@ -43,16 +43,17 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'tlaziuk/vim-system-copy'
-NeoBundle 'tomasr/molokai'
 NeoBundle '907th/vim-auto-save'
-NeoBundle 'xolox/vim-easytags'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'jiangmiao/auto-pairs'
+" themes
+NeoBundle 'tomasr/molokai'
+" tags
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'xolox/vim-easytags'
 " git
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-fugitive'
@@ -75,7 +76,7 @@ NeoBundle 'suan/vim-instant-markdown'
 NeoBundle 'rust-lang/rust.vim'
 " CSV
 NeoBundle 'chrisbra/csv.vim'
-" PHP 
+" PHP
 NeoBundle 'shawncplus/phpcomplete.vim'
 " JavaScript
 NeoBundle 'heavenshell/vim-jsdoc'
@@ -184,15 +185,12 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 set omnifunc=syntaxcomplete#Complete
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType python setlocal omnifunc=jedi#completions
-autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-" inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-x><c-i>"))
-" inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-x><c-o>"))
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+autocmd FileType css setlocal omnifunc+=csscomplete#CompleteCSS
+autocmd FileType html setlocal omnifunc+=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc+=javascriptcomplete#CompleteJS
+autocmd FileType xml setlocal omnifunc+=xmlcomplete#CompleteTags
+autocmd FileType python setlocal omnifunc+=jedi#completions
+autocmd FileType php setlocal omnifunc+=phpcomplete#CompletePHP
 set t_vb=
 set visualbell
 set errorbells
@@ -204,8 +202,9 @@ set statusline+=%*
 set noshowmode
 set shortmess=a
 set hlsearch
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
+set noexpandtab
 set showcmd
 set expandtab
 set formatoptions=c,q,r,t
@@ -228,22 +227,16 @@ set formatoptions+=t
 set cursorline
 set nospell
 set iskeyword-={,},(,),\<,\>,\,,.
-set colorcolumn=80
 set scrolloff=5
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
-autocmd FileType markdown,text setlocal textwidth=80
-autocmd FileType markdown,text setlocal formatoptions+=t
-autocmd FileType php,zephir setlocal tabstop=4
-autocmd FileType php,zephir setlocal shiftwidth=4
-autocmd FileType php,zephir setlocal expandtab
-autocmd FileType php,zephir setlocal colorcolumn=85
+autocmd FileType markdown,text setlocal textwidth=80 colorcolumn=80 formatoptions+=t
+autocmd FileType php,zephir setlocal tabstop=4 shiftwidth=4 expandtab colorcolumn=85
 autocmd BufNewFile,BufReadPost *.dom setlocal filetype=apache
-autocmd FileType apache setlocal tabstop=4
-autocmd FileType apache setlocal shiftwidth=4
-autocmd FileType apache setlocal expandtab
+autocmd FileType apache setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd BufRead *.vala,*.vapi setlocal efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd BufRead,BufNewFile *.vala,*.vapi setlocal filetype vala
+autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab colorcolumn=
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> ts :AutoSaveToggle<CR>
 nnoremap <silent> :rm :call delete(expand('%'))<CR>:bdelete!<CR>
