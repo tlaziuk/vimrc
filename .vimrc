@@ -185,12 +185,12 @@ if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
 set omnifunc=syntaxcomplete#Complete
-autocmd FileType css setlocal omnifunc+=csscomplete#CompleteCSS
-autocmd FileType html setlocal omnifunc+=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc+=javascriptcomplete#CompleteJS
-autocmd FileType xml setlocal omnifunc+=xmlcomplete#CompleteTags
-autocmd FileType python setlocal omnifunc+=jedi#completions
-autocmd FileType php setlocal omnifunc+=phpcomplete#CompletePHP
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType python setlocal omnifunc=jedi#completions
+autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 set t_vb=
 set visualbell
 set errorbells
@@ -239,7 +239,6 @@ autocmd BufRead,BufNewFile *.vala,*.vapi setlocal filetype vala
 autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab colorcolumn=
 nnoremap <silent> tn :NERDTreeToggle<CR>
 nnoremap <silent> ts :AutoSaveToggle<CR>
-nnoremap <silent> :rm :call delete(expand('%'))<CR>:bdelete!<CR>
 nnoremap <silent> <A-,> :sbprevious<CR>:only<CR>
 nnoremap <silent> <A-.> :sbnext<CR>:only<CR>
 nnoremap <silent> <C-,> :sbprevious<CR>:only<CR>
@@ -250,7 +249,6 @@ nnoremap <silent> tl :bfirst<CR>:only<CR>
 nnoremap <silent> tf :blast<CR>:only<CR>
 nnoremap <silent> <C-_> :TComment<CR>
 vnoremap <silent> <C-_> :TComment<CR>
-noremap <silent> <F10> :noh<CR>
 inoremap <C-\> <C-O>o
 nnoremap <C-\> o
 syntax enable
