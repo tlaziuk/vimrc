@@ -33,8 +33,9 @@ NeoBundle 'Valloric/YouCompleteMe', {
 \    }
 \ }
 
+" utilities
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'sirver/ultisnips'
-
 NeoBundle 'tobyS/vmustache'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'terryma/vim-multiple-cursors'
@@ -49,6 +50,7 @@ NeoBundle 'tlaziuk/vim-system-copy'
 NeoBundle '907th/vim-auto-save'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'xolox/vim-shell'
 " themes
 NeoBundle 'tomasr/molokai'
 " tags
@@ -162,7 +164,9 @@ let g:syntastic_auto_jump=0
 set tags+=tags;
 set cpoptions+=d
 let g:easytags_dynamic_files=2
-let g:easytags_suppress_ctags_warning = 1
+let g:easytags_suppress_ctags_warning=1
+let g:easytags_async=1
+let g:easytags_auto_highlight=0
 let g:jsdoc_allow_input_prompt=1
 let g:jsdoc_additional_descriptions=1
 let g:jsdoc_underscore_private=1
@@ -178,8 +182,9 @@ let g:auto_save=0
 let g:auto_save_no_updatetime=1
 let g:auto_save_in_insert_mode=0
 let g:ycm_min_num_of_chars_for_completion=1
-let g:ycm_collect_identifiers_from_tags_files=1
+let g:ycm_collect_identifiers_from_tags_files=0
 let g:ycm_seed_identifiers_with_syntax=1
+let g:phpcomplete_parse_docblock_comments=1
 let notabs=0
 if has('conceal')
   set conceallevel=2 concealcursor=niv
