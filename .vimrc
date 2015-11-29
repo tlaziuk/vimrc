@@ -26,10 +26,10 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 NeoBundle 'Valloric/YouCompleteMe', {
 \ 'build' : {
-\     'mac' : 'python2 install.py',
-\     'unix' : 'python2 install.py',
-\     'windows' : 'install.py',
-\     'cygwin' : 'python2 install.py'
+\     'mac' : 'python2 install.py --clang-completer --gocode-completer',
+\     'unix' : 'python2 install.py --clang-completer --gocode-completer',
+\     'windows' : 'install.py --clang-completer --gocode-completer',
+\     'cygwin' : 'python2 install.py --clang-completer --gocode-completer'
 \    }
 \ }
 
@@ -61,8 +61,6 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tpope/vim-fugitive'
 " Vala
 NeoBundle 'y-ishida/vim-vala'
-" Python
-NeoBundle 'davidhalter/jedi-vim'
 " Twig
 NeoBundle 'evidens/vim-twig'
 " Go
@@ -104,6 +102,8 @@ let g:neobundle#install_process_timeout=1500
 let g:neobundle#types#git#enable_submodule=1
 let g:neobundle#types#git#clone_depth=128
 NeoBundleCheck
+
+let mapleader=" "
 
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
@@ -184,6 +184,10 @@ let g:auto_save_in_insert_mode=0
 let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_collect_identifiers_from_tags_files=0
 let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_add_preview_to_completeopt=1
+set completeopt=menu,menuone,preview
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:phpcomplete_parse_docblock_comments=1
 let notabs=0
 if has('conceal')
@@ -194,7 +198,6 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 set t_vb=
 set visualbell

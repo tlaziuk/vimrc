@@ -8,13 +8,15 @@ Requirements
 - `exuberant-ctags`
 - `python`
 - `cmake`
+- `clang`
+- `go`
 
 Installation
 ---
 - Create a symlink from your local `.vimrc`:
   ``` bash
   cd ~
-  ln -s .vimrc.git/.vimrc
+  ln -s <dir>/.vimrc
   ```
 - Install [neobundle.vim](https://github.com/Shougo/neobundle.vim) - a package manager:
   ``` bash
