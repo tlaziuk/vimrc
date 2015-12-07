@@ -167,6 +167,14 @@ let g:easytags_dynamic_files=2
 let g:easytags_suppress_ctags_warning=1
 let g:easytags_async=1
 let g:easytags_auto_highlight=0
+
+" easymotion
+map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_smartcase=1
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+nmap s <Plug>(easymotion-s2)
+
 let g:jsdoc_allow_input_prompt=1
 let g:jsdoc_additional_descriptions=1
 let g:jsdoc_underscore_private=1
@@ -245,8 +253,6 @@ autocmd FileType apache setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd BufRead *.vala,*.vapi setlocal efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd BufRead,BufNewFile *.vala,*.vapi setlocal filetype vala
 autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab colorcolumn=
-nnoremap <silent> tn :NERDTreeToggle<CR>
-nnoremap <silent> ts :AutoSaveToggle<CR>
 nnoremap <silent> <A-,> :sbprevious<CR>:only<CR>
 nnoremap <silent> <A-.> :sbnext<CR>:only<CR>
 nnoremap <silent> <C-,> :sbprevious<CR>:only<CR>
