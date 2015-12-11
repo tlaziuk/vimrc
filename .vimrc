@@ -155,7 +155,6 @@ let g:ctrlp_regexp=0
 let g:ctrlp_max_files=0
 let g:ctrlp_mruf_max=32
 let g:ctrlp_match_window='bottom,order:btt,min:1,max:8,results:64'
-set wildignore+=node_modules/*,*/node_modules/*,node_modules
 let g:syntastic_always_populate_loc_list=0
 let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=1
@@ -225,7 +224,7 @@ set showcmd
 set expandtab
 set formatoptions=c,q,r,t
 set smarttab
-set number
+set number relativenumber
 set showmatch
 set smartcase
 set incsearch
