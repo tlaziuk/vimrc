@@ -72,6 +72,18 @@ NeoBundle 'xwsoul/vim-zephir'
 " markdown
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'suan/vim-instant-markdown'
+" Python
+NeoBundle 'jmcantrell/vim-virtualenv'
+" XML
+NeoBundle 'sukima/xmledit', {
+\ 'build' : {
+\     'windows' : 'make install',
+\     'cygwin' : 'make install',
+\     'mac' : 'make install',
+\     'linux' : 'make install',
+\     'unix' : 'make install',
+\    },
+\ }
 " Rust
 NeoBundle 'rust-lang/rust.vim'
 " CSV
@@ -168,8 +180,8 @@ let g:easytags_async=1
 let g:easytags_auto_highlight=0
 
 " easymotion
-map <Leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_smartcase=1
+map <Leader> <Plug>(easymotion-prefix)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 nmap s <Plug>(easymotion-s2)
@@ -188,11 +200,14 @@ let g:gitgutter_realtime=1
 let g:auto_save=0
 let g:auto_save_no_updatetime=1
 let g:auto_save_in_insert_mode=0
-let g:ycm_min_num_of_chars_for_completion=1
-let g:ycm_collect_identifiers_from_tags_files=0
-let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_min_num_of_chars_for_completion=1 " Minimum number of characters to trigger the completion
+let g:ycm_collect_identifiers_from_tags_files=1 " Collect identifiers from tag files
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_add_preview_to_completeopt=1
+let g:ycm_seed_identifiers_with_syntax=1 " Completion for programming language's keyword
+let g:ycm_complete_in_comments=1 " Completion in comments
+let g:ycm_complete_in_strings=1 " Completion in string
+let g:ycm_use_ultisnips_completer=1 " UltiSnips
 set completeopt=menu,menuone,preview
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:phpcomplete_parse_docblock_comments=1
@@ -202,10 +217,12 @@ if has('conceal')
 endif
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+autocmd FileType python setlocal omnifunc=jedi#completions
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags noci
+autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags noci
+
 set t_vb=
 set visualbell
 set errorbells
@@ -266,3 +283,10 @@ inoremap <C-\> <C-O>o
 nnoremap <C-\> o
 syntax enable
 syntax on
+
+" include VIRTUAL_ENV reated scripts
+let g:virtualenv_auto_activate=1
+let $PYTHONPATH = $PATH
+if filereadable($VIRTUAL_ENV . '/.vimrc')
+    source $VIRTUAL_ENV/.vimrc
+endif
