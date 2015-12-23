@@ -215,7 +215,6 @@ let notabs=0
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
-set omnifunc=syntaxcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
