@@ -219,7 +219,6 @@ set omnifunc=syntaxcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags noci
 autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags noci
 
