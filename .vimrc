@@ -249,8 +249,10 @@ set linebreak
 set selection=inclusive
 set mousehide
 set mouse=a
-set ttymouse=xterm
-set clipboard=autoselectplus
+if !has('nvim')
+    set ttymouse=xterm2
+endif
+set clipboard+=unnamedplus
 set switchbuf=newtab,usetab
 set laststatus=2
 set formatoptions+=t
