@@ -281,6 +281,9 @@ nnoremap <silent> <C-_> :TComment<CR>
 vnoremap <silent> <C-_> :TComment<CR>
 inoremap <C-\> <C-O>o
 nnoremap <C-\> o
+if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+endif
 syntax enable
 syntax on
 
