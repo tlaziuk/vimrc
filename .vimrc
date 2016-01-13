@@ -221,6 +221,9 @@ autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags noci
 autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags noci
 
+" autoreat when file is changed
+set autoread
+
 set t_vb=
 set visualbell
 set errorbells
@@ -231,7 +234,6 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set noshowmode
 set shortmess=a
-set hlsearch
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
@@ -241,10 +243,22 @@ set formatoptions=c,q,r,t
 set smarttab
 set number relativenumber
 set showmatch
+
+" search options
+set ignorecase
 set smartcase
 set incsearch
+set magic
+set hlsearch
+
+" perfomance
+set lazyredraw
+
+" ignore
+set wildignore=node_modules,.git,.svn
+
 set ruler
-set autoindent smartindent
+set cindent autoindent smartindent
 set linebreak
 set selection=inclusive
 set mousehide
