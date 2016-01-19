@@ -51,6 +51,7 @@ NeoBundle '907th/vim-auto-save'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'xolox/vim-shell'
+NeoBundle 'Chiel92/vim-autoformat'
 " themes
 NeoBundle 'tomasr/molokai'
 " tags
