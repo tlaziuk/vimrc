@@ -26,10 +26,10 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 NeoBundle 'Valloric/YouCompleteMe', {
 \ 'build' : {
-\     'mac' : 'python2 install.py --clang-completer --gocode-completer',
-\     'unix' : 'python2 install.py --clang-completer --gocode-completer',
-\     'windows' : 'install.py --clang-completer --gocode-completer',
-\     'cygwin' : 'python2 install.py --clang-completer --gocode-completer'
+\     'mac' : 'python2 install.py --clang-completer --gocode-completer --tern-completer --racer-completer',
+\     'unix' : 'python2 install.py --clang-completer --gocode-completer --tern-completer --racer-completer',
+\     'windows' : 'install.py --clang-completer --gocode-completer --tern-completer --racer-completer',
+\     'cygwin' : 'python2 install.py --clang-completer --gocode-completer --tern-completer --racer-completer'
 \    }
 \ }
 
