@@ -10,111 +10,88 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 
-call neobundle#begin(expand('/home/tlaziuk/.vim/bundle'))
+call plug#begin(expand('~/.vim/bundle'))
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+" vimproc
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
+" YCM
+Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --gocode-completer --tern-completer --racer-completer' }
 
-NeoBundle 'Valloric/YouCompleteMe', {
-\ 'build' : {
-\     'mac' : 'python2 install.py --clang-completer --gocode-completer --tern-completer --racer-completer',
-\     'unix' : 'python2 install.py --clang-completer --gocode-completer --tern-completer --racer-completer',
-\     'windows' : 'install.py --clang-completer --gocode-completer --tern-completer --racer-completer',
-\     'cygwin' : 'python2 install.py --clang-completer --gocode-completer --tern-completer --racer-completer'
-\    }
-\ }
+" airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " utilities
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'sirver/ultisnips'
-NeoBundle 'tobyS/vmustache'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'tlaziuk/vim-system-copy'
-NeoBundle '907th/vim-auto-save'
-NeoBundle 'easymotion/vim-easymotion'
-NeoBundle 'jiangmiao/auto-pairs'
-NeoBundle 'xolox/vim-shell'
-NeoBundle 'Chiel92/vim-autoformat'
+Plug 'Shougo/unite.vim'
+Plug 'sirver/ultisnips'
+Plug 'tobyS/vmustache'
+Plug 'xolox/vim-misc'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Raimondi/delimitMate'
+Plug 'tomtom/tcomment_vim'
+Plug 'scrooloose/syntastic'
+Plug 'godlygeek/tabular'
+Plug 'tlaziuk/vim-system-copy'
+Plug '907th/vim-auto-save'
+Plug 'easymotion/vim-easymotion'
+Plug 'jiangmiao/auto-pairs'
+Plug 'xolox/vim-shell'
+Plug 'Chiel92/vim-autoformat'
 " themes
-NeoBundle 'tomasr/molokai'
+Plug 'tomasr/molokai'
 " tags
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
+Plug 'xolox/vim-easytags'
 " git
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 " Vala
-NeoBundle 'y-ishida/vim-vala'
+Plug 'y-ishida/vim-vala'
 " Twig
-NeoBundle 'evidens/vim-twig'
+Plug 'evidens/vim-twig'
 " Go
-NeoBundle 'fatih/vim-go'
+Plug 'fatih/vim-go'
 " Less
-NeoBundle 'groenewege/vim-less'
+Plug 'groenewege/vim-less'
 " Zaphir
-NeoBundle 'xwsoul/vim-zephir'
+Plug 'xwsoul/vim-zephir'
 " markdown
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'suan/vim-instant-markdown'
+Plug 'plasticboy/vim-markdown'
+Plug 'suan/vim-instant-markdown'
 " Python
-NeoBundle 'jmcantrell/vim-virtualenv'
+Plug 'jmcantrell/vim-virtualenv'
 " XML
-NeoBundle 'sukima/xmledit', {
-\ 'build' : {
-\     'windows' : 'make install',
-\     'cygwin' : 'make install',
-\     'mac' : 'make install',
-\     'linux' : 'make install',
-\     'unix' : 'make install',
-\    },
-\ }
+Plug 'sukima/xmledit', { 'do': 'make install' }
 " Rust
-NeoBundle 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 " CSV
-NeoBundle 'chrisbra/csv.vim'
+Plug 'chrisbra/csv.vim'
 " PHP
-NeoBundle 'shawncplus/phpcomplete.vim'
+Plug 'shawncplus/phpcomplete.vim'
 " JavaScript
-NeoBundle 'heavenshell/vim-jsdoc'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'othree/javascript-libraries-syntax.vim'
-NeoBundle 'matthewsimo/angular-vim-snippets'
-NeoBundle 'burnettk/vim-angular'
-NeoBundle 'posva/vim-vue'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'matthewsimo/angular-vim-snippets'
+Plug 'burnettk/vim-angular'
+Plug 'posva/vim-vue'
 " CoffeeScript
-NeoBundle 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script'
 " TypeScript
-NeoBundle 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 " Dart
-NeoBundle 'dart-lang/dart-vim-plugin'
+Plug 'dart-lang/dart-vim-plugin'
 " GDB
-NeoBundle 'joonty/vdebug'
+Plug 'joonty/vdebug'
 " Volt
-NeoBundle 'etaoins/vim-volt-syntax'
+Plug 'etaoins/vim-volt-syntax'
 
-call neobundle#end()
+call plug#end()
 filetype plugin indent on
-let g:neobundle#install_process_timeout=1500
-let g:neobundle#types#git#enable_submodule=1
-let g:neobundle#types#git#clone_depth=128
-NeoBundleCheck
+let g:plug_timeout=1500
 
 let mapleader=" "
 
@@ -168,11 +145,16 @@ let g:ctrlp_regexp=0
 let g:ctrlp_max_files=0
 let g:ctrlp_mruf_max=32
 let g:ctrlp_match_window='bottom,order:btt,min:1,max:8,results:64'
+
+" syntastic
 let g:syntastic_always_populate_loc_list=0
 let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_auto_jump=0
+" syntastic options
+let g:syntastic_typescript_tsc_args="--target es5"
+
 set tags+=tags;
 set cpoptions+=d
 let g:easytags_dynamic_files=2
