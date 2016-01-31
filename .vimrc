@@ -23,23 +23,21 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " utilities
-Plug 'Shougo/unite.vim'
+Plug 'Shougo/unite.vim', { 'on': 'Unite' }
 Plug 'sirver/ultisnips'
-Plug 'tobyS/vmustache'
 Plug 'xolox/vim-misc'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'tomtom/tcomment_vim'
 Plug 'scrooloose/syntastic'
 Plug 'godlygeek/tabular'
 Plug 'tlaziuk/vim-system-copy'
-Plug '907th/vim-auto-save'
 Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'xolox/vim-shell'
-Plug 'Chiel92/vim-autoformat'
+Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
 " themes
 Plug 'tomasr/molokai'
 " tags
@@ -49,45 +47,41 @@ Plug 'xolox/vim-easytags'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 " Vala
-Plug 'y-ishida/vim-vala'
+Plug 'y-ishida/vim-vala', { 'for': [ 'vala' ] }
 " Twig
-Plug 'evidens/vim-twig'
+Plug 'evidens/vim-twig', { 'for': [ 'twig' ] }
 " Go
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': [ 'go', 'golang' ] }
 " Less
-Plug 'groenewege/vim-less'
-" Zaphir
-Plug 'xwsoul/vim-zephir'
+Plug 'groenewege/vim-less', { 'for': [ 'less' ] }
+" Zephir
+Plug 'xwsoul/vim-zephir', { 'for': [ 'php', 'zephir' ] }
 " markdown
-Plug 'plasticboy/vim-markdown'
-Plug 'suan/vim-instant-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': [ 'md', 'markdown' ] }
+Plug 'suan/vim-instant-markdown', { 'for': [ 'md', 'markdown' ] }
 " Python
-Plug 'jmcantrell/vim-virtualenv'
+Plug 'jmcantrell/vim-virtualenv', { 'for': [ 'python', 'python3' ] }
 " XML
 Plug 'sukima/xmledit', { 'do': 'make install' }
 " Rust
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': [ 'rust' ] }
 " CSV
-Plug 'chrisbra/csv.vim'
+Plug 'chrisbra/csv.vim', { 'for': [ 'csv' ] }
 " PHP
-Plug 'shawncplus/phpcomplete.vim'
+Plug 'shawncplus/phpcomplete.vim', { 'for': [ 'php' ] }
 " JavaScript
-Plug 'heavenshell/vim-jsdoc'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'matthewsimo/angular-vim-snippets'
-Plug 'burnettk/vim-angular'
-Plug 'posva/vim-vue'
+Plug 'heavenshell/vim-jsdoc', { 'for': [ 'javascript', 'typescript' ] }
+Plug 'pangloss/vim-javascript', { 'for': [ 'javascript' ] }
 " CoffeeScript
-Plug 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script', { 'for': [ 'coffeescript' ] }
 " TypeScript
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript' ] }
 " Dart
-Plug 'dart-lang/dart-vim-plugin'
+Plug 'dart-lang/dart-vim-plugin', { 'for': [ 'dart' ] }
 " GDB
 Plug 'joonty/vdebug'
 " Volt
-Plug 'etaoins/vim-volt-syntax'
+Plug 'etaoins/vim-volt-syntax', { 'for': [ 'volt' ] }
 
 call plug#end()
 filetype plugin indent on
@@ -153,7 +147,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_auto_jump=0
 " syntastic options
-let g:syntastic_typescript_tsc_args="--target es5"
+let g:syntastic_typescript_tsc_args="--target es5 --module commonjs"
 
 set tags+=tags;
 set cpoptions+=d
@@ -180,9 +174,6 @@ let g:jsdoc_access_descriptions=1
 let g:gitgutter_highlight_lines=0
 let g:gitgutter_max_signs=4096
 let g:gitgutter_realtime=1
-let g:auto_save=0
-let g:auto_save_no_updatetime=1
-let g:auto_save_in_insert_mode=0
 let g:ycm_min_num_of_chars_for_completion=1 " Minimum number of characters to trigger the completion
 let g:ycm_collect_identifiers_from_tags_files=1 " Collect identifiers from tag files
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -272,8 +263,8 @@ nnoremap <silent> <C-,> :sbprevious<CR>:only<CR>
 nnoremap <silent> <C-.> :sbnext<CR>:only<CR>
 nnoremap <silent> tp :sbprevious<CR>:only<CR>
 nnoremap <silent> tn :sbnext<CR>:only<CR>
-nnoremap <silent> tl :bfirst<CR>:only<CR>
-nnoremap <silent> tf :blast<CR>:only<CR>
+nnoremap <silent> tf :bfirst<CR>:only<CR>
+nnoremap <silent> tl :blast<CR>:only<CR>
 nnoremap <silent> <C-_> :TComment<CR>
 vnoremap <silent> <C-_> :TComment<CR>
 inoremap <C-\> <C-O>o
