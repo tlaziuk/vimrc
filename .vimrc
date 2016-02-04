@@ -66,7 +66,7 @@ Plug 'sukima/xmledit', { 'do': 'make install' }
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': [ 'rust' ] }
 " CSV
-Plug 'chrisbra/csv.vim', { 'for': [ 'csv' ] }
+Plug 'chrisbra/csv.vim'
 " PHP
 Plug 'shawncplus/phpcomplete.vim', { 'for': [ 'php' ] }
 " JavaScript
@@ -147,7 +147,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_auto_jump=0
 " syntastic options
-let g:syntastic_typescript_tsc_args="--target es5 --module commonjs"
+let g:syntastic_typescript_tsc_args="--target es6 --module commonjs"
 
 set tags+=tags;
 set cpoptions+=d
@@ -281,3 +281,4 @@ let $PYTHONPATH = $PATH
 if filereadable($VIRTUAL_ENV . '/.vimrc')
     source $VIRTUAL_ENV/.vimrc
 endif
+
