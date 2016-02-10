@@ -54,6 +54,8 @@ Plug 'evidens/vim-twig', { 'for': [ 'twig' ] }
 Plug 'fatih/vim-go', { 'for': [ 'go', 'golang' ] }
 " Less
 Plug 'groenewege/vim-less', { 'for': [ 'less' ] }
+" CSS
+Plug 'skammer/vim-css-color', { 'for': [ 'css' ] }
 " Zephir
 Plug 'xwsoul/vim-zephir', { 'for': [ 'php', 'zephir' ] }
 " markdown
