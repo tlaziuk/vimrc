@@ -1,6 +1,5 @@
 scriptencoding utf-8
 set encoding=utf-8
-set nocompatible
 filetype off
 
 if has('vim_starting')
@@ -40,6 +39,11 @@ Plug 'xolox/vim-shell'
 Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
 " themes
 Plug 'tomasr/molokai'
+Plug 'altercation/vim-colors-solarized'
+Plug 'freeo/vim-kalisi'
+Plug 'sjl/badwolf'
+Plug 'AlxHnr/clear_colors'
+Plug 'junegunn/seoul256.vim'
 " tags
 Plug 'majutsushi/tagbar'
 Plug 'xolox/vim-easytags'
@@ -98,7 +102,6 @@ let g:airline_inactive_collapes=1
 let g:airline_extensions = ['tabline', 'branch', 'whitespace', 'syntastic', 'tagbar', 'csv', 'hunks']
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#show_tabs=1
-set t_Co=256
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -122,8 +125,13 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
-let g:airline_theme='molokai'
-colorscheme molokai
+
+" colorscheme
+set t_Co=256
+set background=dark
+colorscheme badwolf
+let g:solarized_termcolors=256
+
 let g:ProjRootIndicators = [".git", "README.md", "LICENSE.md"]
 let g:bufExplorerShowTabBuffer=0
 let g:miniBufExplorerAutoStart=0
@@ -197,7 +205,7 @@ autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags noci
 autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags noci
 
-" autoreat when file is changed
+" autoread when file is changed
 set autoread
 
 set t_vb=
