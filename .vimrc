@@ -37,6 +37,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'jiangmiao/auto-pairs'
 Plug 'xolox/vim-shell'
 Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
+Plug 'editorconfig/editorconfig-vim'
+
 " themes
 Plug 'tomasr/molokai'
 Plug 'altercation/vim-colors-solarized'
