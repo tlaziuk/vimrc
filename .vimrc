@@ -6,8 +6,17 @@ if has('vim_starting')
     if &compatible
         set nocompatible
     endif
-    set runtimepath+=~/.vim/bundle/neobundle.vim
+
 endif
+
+function s:ExecutableArgument(cmd, arg)
+    if executable(a:cmd)
+        return a:arg
+    endif
+    return ''
+endfunction
+
+let g:YcmCompileArgs='--omnisharp-completer --clang-completer ' . s:ExecutableArgument('go', '--gocode-completer ') . s:ExecutableArgument('npm', '--tern-completer ') . s:ExecutableArgument('cargo', '--racer-completer')
 
 call plug#begin(expand('~/.vim/bundle'))
 
@@ -15,7 +24,9 @@ call plug#begin(expand('~/.vim/bundle'))
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 " YCM
-Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py --clang-completer --gocode-completer --tern-completer --racer-completer' }
+if executable('cmake')
+    Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py ' . g:YcmCompileArgs }
+endif
 
 " airline
 Plug 'vim-airline/vim-airline'
@@ -159,7 +170,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 let g:syntastic_auto_jump=0
 " syntastic options
-let g:syntastic_typescript_tsc_args="--target es6 --module commonjs"
+let g:syntastic_typescript_tsc_args="--target es6 --module commonjs --experimentalDecorators"
 
 set tags+=tags;
 set cpoptions+=d
@@ -188,7 +199,8 @@ let g:gitgutter_max_signs=4096
 let g:gitgutter_realtime=1
 let g:ycm_min_num_of_chars_for_completion=1 " Minimum number of characters to trigger the completion
 let g:ycm_collect_identifiers_from_tags_files=1 " Collect identifiers from tag files
-let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_autoclose_preview_window_after_completion=0
+let g:ycm_autoclose_preview_window_after_insertion=1
 let g:ycm_add_preview_to_completeopt=1
 let g:ycm_seed_identifiers_with_syntax=1 " Completion for programming language's keyword
 let g:ycm_complete_in_comments=1 " Completion in comments
