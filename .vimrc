@@ -16,7 +16,7 @@ function s:ExecutableArgument(cmd, arg)
     return ''
 endfunction
 
-let g:YcmCompileArgs='--omnisharp-completer --clang-completer ' . s:ExecutableArgument('go', '--gocode-completer ') . s:ExecutableArgument('npm', '--tern-completer ') . s:ExecutableArgument('cargo', '--racer-completer')
+let g:YcmCompileArgs='--clang-completer ' . s:ExecutableArgument('go', '--gocode-completer ') . s:ExecutableArgument('npm', '--tern-completer ') . s:ExecutableArgument('cargo', '--racer-completer ') . s:ExecutableArgument('xbuild', '--omnisharp-completer ')
 
 call plug#begin(expand('~/.vim/bundle'))
 
