@@ -76,8 +76,7 @@ Plug 'skammer/vim-css-color', { 'for': [ 'css' ] }
 " Zephir
 Plug 'xwsoul/vim-zephir', { 'for': [ 'php', 'zephir' ] }
 " markdown
-Plug 'plasticboy/vim-markdown', { 'for': [ 'md', 'markdown' ] }
-Plug 'suan/vim-instant-markdown', { 'for': [ 'md', 'markdown' ] }
+Plug 'plasticboy/vim-markdown'
 " Python
 Plug 'jmcantrell/vim-virtualenv', { 'for': [ 'python', 'python3' ] }
 " XML
@@ -194,6 +193,7 @@ let g:jsdoc_return=1
 let g:jsdoc_return_description=1
 let g:jsdoc_return_type=1
 let g:jsdoc_access_descriptions=1
+let g:vim_markdown_folding_disabled=1 " disable folding for vim-markdown
 let g:gitgutter_highlight_lines=0
 let g:gitgutter_max_signs=4096
 let g:gitgutter_realtime=1
