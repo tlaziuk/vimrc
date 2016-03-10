@@ -77,6 +77,7 @@ Plug 'skammer/vim-css-color', { 'for': [ 'css' ] }
 Plug 'xwsoul/vim-zephir', { 'for': [ 'php', 'zephir' ] }
 " markdown
 Plug 'plasticboy/vim-markdown'
+Plug 'shime/vim-livedown', { 'for': [ 'markdown' ], 'do': 'npm install -g livedown' }
 " Python
 Plug 'jmcantrell/vim-virtualenv', { 'for': [ 'python', 'python3' ] }
 " XML
@@ -194,6 +195,8 @@ let g:jsdoc_return_description=1
 let g:jsdoc_return_type=1
 let g:jsdoc_access_descriptions=1
 let g:vim_markdown_folding_disabled=1 " disable folding for vim-markdown
+let g:livedown_autorun=0
+let g:livedown_open=1
 let g:gitgutter_highlight_lines=0
 let g:gitgutter_max_signs=4096
 let g:gitgutter_realtime=1
@@ -255,6 +258,9 @@ set lazyredraw
 " ignore
 set wildignore=node_modules,.git,.svn
 
+" autowrite
+set autowriteall
+
 set ruler
 set cindent autoindent smartindent
 set linebreak
@@ -274,7 +280,7 @@ set iskeyword-={,},(,),\<,\>,\,,.
 set scrolloff=5
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
-autocmd FileType markdown,text setlocal textwidth=80 colorcolumn=80 formatoptions+=t
+autocmd FileType markdown,text setlocal colorcolumn=80
 autocmd FileType php,zephir setlocal tabstop=4 shiftwidth=4 expandtab colorcolumn=85
 autocmd BufNewFile,BufReadPost *.dom setlocal filetype=apache
 autocmd FileType apache setlocal tabstop=4 shiftwidth=4 expandtab

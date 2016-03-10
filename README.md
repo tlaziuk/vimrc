@@ -8,11 +8,12 @@ Requirements
 - `git`
 - `exuberant-ctags`
 - `python`
-- `cmake`
-- `clang`
-- `go`
-- `rust`
-- `cargo`
+- `cmake` (optional)
+- `clang` (optional)
+- `go` (optional)
+- `rust` (optional)
+- `cargo` (optional)
+- `npm`
 
 Installation
 ---
@@ -25,5 +26,5 @@ Installation
   ``` bash
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   ```
-- After first run of `vim` you can update your plugins by `:plugUpdate`.
+- After first run of `vim` you can update your plugins by `:PlugUpdate`.
 
