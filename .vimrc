@@ -49,6 +49,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'xolox/vim-shell'
 Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
 Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-scripts/PreserveNoEOL'
 
 " themes
 Plug 'tomasr/molokai'
@@ -76,7 +77,7 @@ Plug 'skammer/vim-css-color', { 'for': [ 'css' ] }
 " Zephir
 Plug 'xwsoul/vim-zephir', { 'for': [ 'php', 'zephir' ] }
 " markdown
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': [ 'markdown' ] }
 Plug 'shime/vim-livedown', { 'for': [ 'markdown' ], 'do': 'npm install -g livedown' }
 " Python
 Plug 'jmcantrell/vim-virtualenv', { 'for': [ 'python', 'python3' ] }
@@ -186,6 +187,9 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 nmap s <Plug>(easymotion-s2)
 
+" EditorConfig
+let g:EditorConfig_exclude_patterns=['fugitive://.*']
+
 let g:jsdoc_allow_input_prompt=1
 let g:jsdoc_additional_descriptions=1
 let g:jsdoc_underscore_private=1
@@ -196,7 +200,7 @@ let g:jsdoc_return_type=1
 let g:jsdoc_access_descriptions=1
 let g:vim_markdown_folding_disabled=1 " disable folding for vim-markdown
 let g:livedown_autorun=0
-let g:livedown_open=1
+let g:livedown_open=0
 let g:gitgutter_highlight_lines=0
 let g:gitgutter_max_signs=4096
 let g:gitgutter_realtime=1
@@ -280,13 +284,9 @@ set iskeyword-={,},(,),\<,\>,\,,.
 set scrolloff=5
 autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
-autocmd FileType markdown,text setlocal colorcolumn=80
-autocmd FileType php,zephir setlocal tabstop=4 shiftwidth=4 expandtab colorcolumn=85
 autocmd BufNewFile,BufReadPost *.dom setlocal filetype=apache
-autocmd FileType apache setlocal tabstop=4 shiftwidth=4 expandtab
-autocmd BufRead *.vala,*.vapi setlocal efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 autocmd BufRead,BufNewFile *.vala,*.vapi setlocal filetype vala
-autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 expandtab colorcolumn=
+autocmd FileType vala setlocal efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
 nnoremap <silent> <A-,> :sbprevious<CR>:only<CR>
 nnoremap <silent> <A-.> :sbnext<CR>:only<CR>
 nnoremap <silent> <C-,> :sbprevious<CR>:only<CR>
@@ -295,6 +295,7 @@ nnoremap <silent> tp :sbprevious<CR>:only<CR>
 nnoremap <silent> tn :sbnext<CR>:only<CR>
 nnoremap <silent> tf :bfirst<CR>:only<CR>
 nnoremap <silent> tl :blast<CR>:only<CR>
+nnoremap <silent> <C-m> :LivedownToggle<CR>
 nnoremap <silent> <C-_> :TComment<CR>
 vnoremap <silent> <C-_> :TComment<CR>
 inoremap <C-\> <C-O>o
