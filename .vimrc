@@ -16,7 +16,7 @@ function s:ExecutableArgument(cmd, arg)
     return ''
 endfunction
 
-let g:YcmCompileArgs='--clang-completer ' . s:ExecutableArgument('go', '--gocode-completer ') . s:ExecutableArgument('npm', '--tern-completer ') . s:ExecutableArgument('cargo', '--racer-completer ') . s:ExecutableArgument('xbuild', '--omnisharp-completer ')
+let g:YcmCompileArgs=s:ExecutableArgument('clang', '--clang-completer ') . s:ExecutableArgument('go', '--gocode-completer ') . s:ExecutableArgument('npm', '--tern-completer ') . s:ExecutableArgument('cargo', '--racer-completer ') . s:ExecutableArgument('xbuild', '--omnisharp-completer ')
 
 call plug#begin(expand('~/.vim/bundle'))
 
@@ -78,7 +78,7 @@ Plug 'skammer/vim-css-color', { 'for': [ 'css' ] }
 Plug 'xwsoul/vim-zephir', { 'for': [ 'php', 'zephir' ] }
 " markdown
 Plug 'plasticboy/vim-markdown', { 'for': [ 'markdown' ] }
-Plug 'shime/vim-livedown', { 'for': [ 'markdown' ], 'do': 'npm install -g livedown' }
+Plug 'shime/vim-livedown', { 'for': [ 'markdown' ] }
 " Python
 Plug 'jmcantrell/vim-virtualenv', { 'for': [ 'python', 'python3' ] }
 " XML
