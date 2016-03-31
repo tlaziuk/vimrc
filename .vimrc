@@ -296,6 +296,7 @@ nnoremap <silent> tn :sbnext<CR>:only<CR>
 nnoremap <silent> tf :bfirst<CR>:only<CR>
 nnoremap <silent> tl :blast<CR>:only<CR>
 nnoremap <silent> <C-m> :LivedownToggle<CR>
+nnoremap <silent> <C-A-b> :Autoformat<CR>
 nnoremap <silent> <C-_> :TComment<CR>
 vnoremap <silent> <C-_> :TComment<CR>
 inoremap <C-\> <C-O>o
