@@ -102,6 +102,8 @@ Plug 'dart-lang/dart-vim-plugin', { 'for': [ 'dart' ] }
 Plug 'joonty/vdebug'
 " Volt
 Plug 'etaoins/vim-volt-syntax', { 'for': [ 'volt' ] }
+" nginx
+Plug 'evanmiller/nginx-vim-syntax', { 'for': [ 'nginx' ] }
 
 call plug#end()
 filetype plugin indent on
