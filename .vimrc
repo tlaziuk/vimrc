@@ -25,7 +25,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 
 " YCM
 if executable('cmake')
-    Plug 'Valloric/YouCompleteMe', { 'do': 'python2 install.py ' . g:YcmCompileArgs }
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.py ' . g:YcmCompileArgs }
 endif
 
 " airline
@@ -177,10 +177,11 @@ let g:syntastic_typescript_tsc_args="--target es6 --module commonjs --experiment
 
 set tags+=tags;
 set cpoptions+=d
-let g:easytags_dynamic_files=2
-let g:easytags_suppress_ctags_warning=1
 let g:easytags_async=1
 let g:easytags_auto_highlight=0
+let g:easytags_autorecurse=1
+let g:easytags_dynamic_files=2
+let g:easytags_suppress_ctags_warning=1
 
 " easymotion
 let g:EasyMotion_smartcase=1
@@ -216,7 +217,7 @@ let g:ycm_complete_in_comments=1 " Completion in comments
 let g:ycm_complete_in_strings=1 " Completion in string
 let g:ycm_use_ultisnips_completer=1 " UltiSnips
 set completeopt=menu,menuone,preview
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
 let g:phpcomplete_parse_docblock_comments=1
 let notabs=0
 if has('conceal')
