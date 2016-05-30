@@ -96,6 +96,7 @@ Plug 'pangloss/vim-javascript', { 'for': [ 'javascript' ] }
 Plug 'kchmck/vim-coffee-script', { 'for': [ 'coffeescript' ] }
 " TypeScript
 Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript' ] }
+Plug 'erringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] }
 " Dart
 Plug 'dart-lang/dart-vim-plugin', { 'for': [ 'dart' ] }
 " GDB
