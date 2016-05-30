@@ -179,7 +179,7 @@ set tags+=tags;
 set cpoptions+=d
 let g:easytags_async=1
 let g:easytags_auto_highlight=0
-let g:easytags_autorecurse=1
+let g:easytags_autorecurse=0
 let g:easytags_dynamic_files=2
 let g:easytags_suppress_ctags_warning=1
 
