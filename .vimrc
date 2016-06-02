@@ -35,6 +35,7 @@ Plug 'vim-airline/vim-airline-themes'
 " utilities
 Plug 'Shougo/unite.vim', { 'on': 'Unite' }
 Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'xolox/vim-misc'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -80,7 +81,7 @@ Plug 'xwsoul/vim-zephir', { 'for': [ 'php', 'zephir' ] }
 Plug 'plasticboy/vim-markdown', { 'for': [ 'markdown' ] }
 Plug 'shime/vim-livedown', { 'for': [ 'markdown' ] }
 " Python
-Plug 'jmcantrell/vim-virtualenv', { 'for': [ 'python', 'python3' ] }
+Plug 'jmcantrell/vim-virtualenv', { 'for': [ 'python', 'python2', 'python3' ] }
 " XML
 Plug 'sukima/xmledit', { 'do': 'make install' }
 " Rust
@@ -96,7 +97,7 @@ Plug 'pangloss/vim-javascript', { 'for': [ 'javascript' ] }
 Plug 'kchmck/vim-coffee-script', { 'for': [ 'coffeescript' ] }
 " TypeScript
 Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript' ] }
-Plug 'erringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] }
+Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] }
 " Dart
 Plug 'dart-lang/dart-vim-plugin', { 'for': [ 'dart' ] }
 " GDB
@@ -217,6 +218,10 @@ let g:ycm_seed_identifiers_with_syntax=1 " Completion for programming language's
 let g:ycm_complete_in_comments=1 " Completion in comments
 let g:ycm_complete_in_strings=1 " Completion in string
 let g:ycm_use_ultisnips_completer=1 " UltiSnips
+let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+let g:UltiSnipsExpandTrigger='<C-k>'
+let g:UltiSnipsJumpForwardTrigger='<C-k>'
+let g:UltiSnipsJumpBackwardTrigger='<S-C-k>'
 set completeopt=menu,menuone,preview
 nnoremap <leader>g :YcmCompleter GoToDefinition<CR>
 let g:phpcomplete_parse_docblock_comments=1
