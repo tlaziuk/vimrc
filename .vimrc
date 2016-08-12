@@ -91,6 +91,8 @@ Plug 'rust-lang/rust.vim', { 'for': [ 'rust' ] }
 Plug 'chrisbra/csv.vim'
 " PHP
 Plug 'shawncplus/phpcomplete.vim', { 'for': [ 'php' ] }
+" PKGBUILD
+Plug 'Firef0x/PKGBUILD.vim'
 " JavaScript
 Plug 'heavenshell/vim-jsdoc', { 'for': [ 'javascript', 'typescript' ] }
 Plug 'pangloss/vim-javascript', { 'for': [ 'javascript' ] }
