@@ -94,13 +94,11 @@ Plug 'shawncplus/phpcomplete.vim', { 'for': [ 'php' ] }
 " PKGBUILD
 Plug 'Firef0x/PKGBUILD.vim'
 " JavaScript
-Plug 'heavenshell/vim-jsdoc', { 'for': [ 'javascript', 'typescript' ] }
 Plug 'pangloss/vim-javascript', { 'for': [ 'javascript' ] }
 " CoffeeScript
 Plug 'kchmck/vim-coffee-script', { 'for': [ 'coffeescript' ] }
 " TypeScript
 Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript' ] }
-Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript' ] }
 " Dart
 Plug 'dart-lang/dart-vim-plugin', { 'for': [ 'dart' ] }
 " GDB
