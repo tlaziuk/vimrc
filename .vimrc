@@ -66,6 +66,8 @@ Plug 'xolox/vim-easytags'
 " git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+" toml
+Plug 'cespare/vim-toml'
 " Vala
 Plug 'y-ishida/vim-vala', { 'for': [ 'vala' ] }
 " Twig
@@ -177,8 +179,6 @@ let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
 
 " syntastic filetype options
-let g:syntastic_typescript_tsc_args="--target es6 --module commonjs --experimentalDecorators"
-
 let g:easytags_async=1
 let g:easytags_auto_highlight=0
 let g:easytags_autorecurse=0
@@ -197,14 +197,12 @@ nmap s <Plug>(easymotion-s2)
 " EditorConfig
 let g:EditorConfig_exclude_patterns=['fugitive://.*']
 
-let g:jsdoc_access_descriptions=1
-let g:jsdoc_additional_descriptions=1
-let g:jsdoc_allow_input_prompt=1
-let g:jsdoc_enable_es6=1
-let g:jsdoc_return=1
-let g:jsdoc_return_description=1
-let g:jsdoc_return_type=1
-let g:jsdoc_underscore_private=1
+"rust
+let g:ycm_rust_src_path='/usr/src/rust/src'
+if !isdirectory(g:ycm_rust_src_path)
+    let g:ycm_rust_src_path=$HOME . '/git/rust/src'
+endif
+
 let g:vim_markdown_folding_disabled=1 " disable folding for vim-markdown
 let g:livedown_autorun=0
 let g:livedown_open=0
