@@ -42,7 +42,7 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'tomtom/tcomment_vim'
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'godlygeek/tabular'
 Plug 'tlaziuk/vim-system-copy'
 Plug 'easymotion/vim-easymotion'
@@ -100,6 +100,8 @@ Plug 'pangloss/vim-javascript', { 'for': [ 'javascript' ] }
 " CoffeeScript
 Plug 'kchmck/vim-coffee-script', { 'for': [ 'coffeescript' ] }
 " TypeScript
+Plug 'Quramy/tsuquyomi', { 'for': [ 'typescript' ] }
+Plug 'Quramy/vim-js-pretty-template', { 'for': [ 'typescript' ] }
 Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript' ] }
 " Dart
 Plug 'dart-lang/dart-vim-plugin', { 'for': [ 'dart' ] }
@@ -170,9 +172,14 @@ let g:ctrlp_regexp=0
 let g:ctrlp_show_hidden=1
 let g:ctrlp_use_caching=1
 let g:ctrlp_working_path_mode=''
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" tsuquyomi
+let g:tsuquyomi_disable_quickfix = 1
 
 " syntastic
-let g:syntastic_always_populate_loc_list=0
+let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_jump=0
 let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=1
@@ -316,6 +323,8 @@ if has('nvim')
 endif
 syntax enable
 syntax on
+
+command Rm :call delete(expand('%')) | bdelete!
 
 " mkdir on file save
 function s:MkNonExDir(file, buf)
