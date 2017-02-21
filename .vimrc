@@ -178,7 +178,7 @@ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclu
 let g:tsuquyomi_disable_quickfix = 1
 
 " syntastic
-let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+let g:syntastic_typescript_checkers = ['tslint', 'tsuquyomi']
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_jump=0
 let g:syntastic_auto_loc_list=0
@@ -303,6 +303,14 @@ autocmd BufNewFile,BufReadPost *.md setlocal filetype=markdown
 autocmd BufRead,BufNewFile *.vala,*.vapi setlocal filetype vala
 autocmd FileType markdown,text,gitcommit setlocal spell spelllang=en
 autocmd FileType vala setlocal efm=%f:%l.%c-%[%^:]%#:\ %t%[%^:]%#:\ %m
+
+" moving lines
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 inoremap <C-\> <C-O>o
 nnoremap <C-\> o
