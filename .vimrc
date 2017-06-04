@@ -52,6 +52,7 @@ Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/PreserveNoEOL'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'xolox/vim-session'
 
 " themes
 Plug 'tomasr/molokai'
@@ -209,6 +210,13 @@ let g:ycm_rust_src_path='/usr/src/rust/src'
 if !isdirectory(g:ycm_rust_src_path)
     let g:ycm_rust_src_path=$HOME . '/git/rust/src'
 endif
+
+"session
+let g:session_autosave='yes'
+let g:session_autoload='yes'
+let g:session_directory='.'
+let g:session_default_name='Session'
+let g:session_extension='.vim'
 
 let g:vim_markdown_folding_disabled=1 " disable folding for vim-markdown
 let g:livedown_autorun=0
