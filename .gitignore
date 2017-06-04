@@ -1,10 +1,8 @@
-# swap
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
-# session
-Session.vim
-# temporary
+*.un~
+[._][sS]ession.vim
 .netrwhist
 *~
-# auto-generated tag files
+*.lock
 tags
